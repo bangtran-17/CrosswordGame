@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5uc9UnRFumb":
+      case "6Q3YF178DR7":
         Script1();
         break;
   }
@@ -13,7 +13,7 @@ function Script1()
   var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
 var table=[];
 var table1=[];
-var textPoint= document.querySelector('#uniqueDomId-1525')
+var textPoint= document.querySelector("[data-model-id='6fDysH75AUz']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
 var point=0;
 var pointText= document.querySelector("[data-model-id='']");
 for(var i =6;i<106;i++){
@@ -235,7 +235,7 @@ if(key.style.fill =="rgb(195, 0, 16)" ||  key.style.fill ==""){
     if(flag==1){
 point ++;
 console.log(point)
-textPoint.children[0].children[0].children[0].children[0].textContent=point
+textPoint.textContent=point
 }
 
 };
