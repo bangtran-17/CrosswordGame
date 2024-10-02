@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6Q3YF178DR7":
+      case "6YJQkHHQCEr":
         Script1();
         break;
   }
@@ -47,7 +47,7 @@ function isOverlapping(div1, div2) {
     }
 
 
- var SelectedKeytext = ['SIXSIGMA', 'KAIZEN', 'TRAMSANG','XUATSAC','TRUCOT','TRUCQUAN','POHSKROW','CONGCU','LEAN'];
+ var SelectedKeytext = ['SIXSIGMA', 'KAIZEN', 'TRAMSANG','XUATSAC','TRUCOT','TRUCQUAN','WORKSHOP','CONGCU','LEAN','LANGPHI'];
     
         var numRows = 10;
         var numCols = 10;
@@ -179,11 +179,11 @@ function getRandomColor() {
         return color;
     }
 
-    document.addEventListener('mousemove', function(event) {
+    document.addEventListener('touchmove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
    
-document.onmousedown = function() {
+document.ontouchstart = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
         
@@ -198,10 +198,10 @@ document.onmousedown = function() {
             console.log(keyText)
             }
         });
-        document.onmousedown=null
+        document.ontouchstart=null
             }
     // When the mouse button is released anywhere on the document
-    document.onmouseup = function() {
+    document.ontouchend = function() {
         isMouseDown = false;
         increment=0;
         var flag=0;
@@ -254,7 +254,7 @@ textPoint.textContent=point
         rect.hasEntered = false; // Custom flag for each rectangle
         // Add mouseenter event listener to each rectangle
         rect.transform="scale(0.5, 0.5)"
-        rect.addEventListener('mouseenter', function() {
+        rect.addEventListener('touchstart', function() {
             if(!rect.hasEntered && isMouseDown ){
               
                 rect.hasEntered = true; // Mark as entered
