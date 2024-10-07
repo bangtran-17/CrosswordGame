@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6BvOcF6Q8GU":
+      case "6FOvO9vGsTc":
         Script1();
         break;
   }
@@ -148,6 +148,7 @@ function isOverlapping(div1, div2) {
               key.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent= tableMap.get(key).children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent
 }
 //----------------
+
 let keyArray=[];
 let keyArray1=[]
 var rectangles=[];
@@ -182,7 +183,16 @@ function getRandomColor() {
     document.addEventListener('mousemove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
-   
+   document.ontouchstart=function(){
+   fetch('https://prod-45.southeastasia.logic.azure.com:443/workflows/aa96747f205c4500b89b561b53f3c908/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KbXcNYMalGYE8Df7OnafeNnvhxCw01k8pWpFQK-9D3Q', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ user_Email: 'John', point: '30' })
+  })
+
+}
 document.onmousedown = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
