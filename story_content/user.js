@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6SZwUFxkbP0":
+      case "5W7UJSlv3tW":
         Script1();
         break;
   }
@@ -54,81 +54,178 @@ function isOverlapping(div1, div2) {
         var matrix = Array.from({ length: numRows }, () => Array(numCols).fill(''));
 
        
-        function placeWordInMatrix(word, matrix) {
-            var placed = false;
+    function placeWordInMatrix(word, matrix) {
+    var placed = false;
 
-            while (!placed) {
-               
-                var direction = Math.floor(Math.random() * 3);
+    while (!placed) {
+        // Choose a random direction (0: horizontal, 1: vertical, 2: diagonal top-left to bottom-right,
+        // 3: diagonal bottom-right to top-left, 4: right to left, 5: bottom to top)
+        var direction = Math.floor(Math.random() * 8);
 
-                if (direction === 0) {
-                    // Place horizontally (left to right)
-                    var row = Math.floor(Math.random() * numRows);
-                    var col = Math.floor(Math.random() * (numCols - word.length));
 
-                    // Check if space is available
-                    var canPlace = true;
-                    for (let i = 0; i < word.length; i++) {
-                        if (matrix[row][col + i] !== '') {
-                            canPlace = false;
-                            break;
-                        }
-                    }
+        if (direction === 0) {
+            // Place horizontally (left to right)
+            var row = Math.floor(Math.random() * numRows);
+            var col = Math.floor(Math.random() * (numCols - word.length));
 
-                    // Place the word if space is free
-                    if (canPlace) {
-                        for (let i = 0; i < word.length; i++) {
-                            matrix[row][col + i] = word[i];
-                        }
-                        placed = true;
-                    }
-
-                } else if (direction === 1) {
-                    // Place vertically (top to bottom)
-                    var row = Math.floor(Math.random() * (numRows - word.length));
-                    var col = Math.floor(Math.random() * numCols);
-
-                    // Check if space is available
-                    var canPlace = true;
-                    for (let i = 0; i < word.length; i++) {
-                        if (matrix[row + i][col] !== '') {
-                            canPlace = false;
-                            break;
-                        }
-                    }
-
-                    // Place the word if space is free
-                    if (canPlace) {
-                        for (let i = 0; i < word.length; i++) {
-                            matrix[row + i][col] = word[i];
-                        }
-                        placed = true;
-                    }
-
-                } else if (direction === 2) {
-                    // Place diagonally (top-left to bottom-right)
-                    var row = Math.floor(Math.random() * (numRows - word.length));
-                    var col = Math.floor(Math.random() * (numCols - word.length));
-
-                    // Check if space is available
-                    var canPlace = true;
-                    for (let i = 0; i < word.length; i++) {
-                        if (matrix[row + i][col + i] !== '') {
-                            canPlace = false;
-                            break;
-                        }
-                    }
-
-                    // Place the word if space is free
-                    if (canPlace) {
-                        for (let i = 0; i < word.length; i++) {
-                            matrix[row + i][col + i] = word[i];
-                        }
-                        placed = true;
-                    }
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row][col + i] !== '') {
+                    canPlace = false;
+                    break;
                 }
             }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row][col + i] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 1) {
+            // Place vertically (top to bottom)
+            var row = Math.floor(Math.random() * (numRows - word.length));
+            var col = Math.floor(Math.random() * numCols);
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row + i][col] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row + i][col] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 2) {
+            // Place diagonally (top-left to bottom-right)
+            var row = Math.floor(Math.random() * (numRows - word.length));
+            var col = Math.floor(Math.random() * (numCols - word.length));
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row + i][col + i] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row + i][col + i] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 3) {
+            // Place diagonally (bottom-right to top-left)
+            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row - i][col - i] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row - i][col - i] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 4) {
+            // Place horizontally (right to left)
+            var row = Math.floor(Math.random() * numRows);
+            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row][col - i] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row][col - i] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 5) {
+            // Place vertically (bottom to top)
+            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+            var col = Math.floor(Math.random() * numCols);
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row - i][col] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row - i][col] = word[i];
+                }
+                placed = true;
+            }
         }
+else if (direction === 6) {
+            // Place diagonally (bottom-left to top-right)
+            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+            var col = Math.floor(Math.random() * (numCols - word.length));
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row - i][col + i] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row - i][col + i] = word[i];
+                }
+                placed = true;
+            }
+
+        } else if (direction === 7) {
+            // Place diagonally (top-right to bottom-left)
+            var row = Math.floor(Math.random() * (numRows - word.length));
+            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+
+            var canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+                if (matrix[row + i][col - i] !== '') {
+                    canPlace = false;
+                    break;
+                }
+            }
+
+            if (canPlace) {
+                for (let i = 0; i < word.length; i++) {
+                    matrix[row + i][col - i] = word[i];
+                }
+                placed = true;
+            }
+        }
+    }
+}
+
         console.log(matrix)
         // Place all words into the matrix
         SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
@@ -179,20 +276,21 @@ function getRandomColor() {
         }
         return color;
     }
-
+    document.ontouchstart=function(){
+        fetch('https://prod-45.southeastasia.logic.azure.com:443/workflows/aa96747f205c4500b89b561b53f3c908/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KbXcNYMalGYE8Df7OnafeNnvhxCw01k8pWpFQK-9D3Q', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_Email: "test", point: 30,sophut:10,sogiay:10 })
+          })
+        
+     
+     }
     document.addEventListener('mousemove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
-   document.ontouchstart=function(){
-   fetch('https://prod-45.southeastasia.logic.azure.com:443/workflows/aa96747f205c4500b89b561b53f3c908/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KbXcNYMalGYE8Df7OnafeNnvhxCw01k8pWpFQK-9D3Q', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ user_Email: rectangles[0], point: '30' })
-  })
-
-}
+  
 document.onmousedown = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
