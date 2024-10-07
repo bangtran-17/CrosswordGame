@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6YJQkHHQCEr":
+      case "6BvOcF6Q8GU":
         Script1();
         break;
   }
@@ -13,9 +13,9 @@ function Script1()
   var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
 var table=[];
 var table1=[];
-var textPoint= document.querySelector("[data-model-id='6fDysH75AUz']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
+var textPoint= document.querySelector("[data-model-id='6UY3G46wd3M']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
 var point=0;
-var pointText= document.querySelector("[data-model-id='']");
+
 for(var i =6;i<106;i++){
     table.push(slideLayer[i])
 }
@@ -46,8 +46,8 @@ function isOverlapping(div1, div2) {
     }
     }
 
-
  var SelectedKeytext = ['SIXSIGMA', 'KAIZEN', 'TRAMSANG','XUATSAC','TRUCOT','TRUCQUAN','WORKSHOP','CONGCU','LEAN','LANGPHI'];
+
     
         var numRows = 10;
         var numCols = 10;
@@ -179,11 +179,11 @@ function getRandomColor() {
         return color;
     }
 
-    document.addEventListener('touchmove', function(event) {
+    document.addEventListener('mousemove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
    
-document.ontouchstart = function() {
+document.onmousedown = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
         
@@ -198,14 +198,15 @@ document.ontouchstart = function() {
             console.log(keyText)
             }
         });
-        document.ontouchstart=null
+        document.onmousedown=null
             }
     // When the mouse button is released anywhere on the document
-    document.ontouchend = function() {
+    document.onmouseup = function() {
         isMouseDown = false;
         increment=0;
-        var flag=0;
+   var flag=0;
         if( SelectedKeytext.includes(keyText)){
+            console.log('true');
             randomColor=getRandomColor()
             keyArray.forEach(function(key) {
         key.style.fill = randomColor 
@@ -217,6 +218,8 @@ flag=1;
         key.setAttribute("fill",randomColor)
     });
         }else{
+            
+
             keyArray.forEach(function(key) {
 if(key.style.fill =="rgb(195, 0, 16)" ||  key.style.fill ==""){
         key.style.fill = "#D99694";  
@@ -232,7 +235,7 @@ if(key.style.fill =="rgb(195, 0, 16)" ||  key.style.fill ==""){
         keyText="";
         keyArray=[]
       keyArray1=[]
-    if(flag==1){
+   if(flag==1){
 point ++;
 console.log(point)
 textPoint.textContent=point
@@ -254,7 +257,7 @@ textPoint.textContent=point
         rect.hasEntered = false; // Custom flag for each rectangle
         // Add mouseenter event listener to each rectangle
         rect.transform="scale(0.5, 0.5)"
-        rect.addEventListener('touchstart', function() {
+        rect.addEventListener('mouseenter', function() {
             if(!rect.hasEntered && isMouseDown ){
               
                 rect.hasEntered = true; // Mark as entered
