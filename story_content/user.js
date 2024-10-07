@@ -2,7 +2,7 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6nDtxP7pbZV":
+      case "6XbH8AyIEFG":
         Script1();
         break;
   }
@@ -189,7 +189,7 @@ function getRandomColor() {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ user_Email: 'John', point: '30' })
+    body: JSON.stringify({ user_Email: rectangles[0], point: '30' })
   })
 
 }
