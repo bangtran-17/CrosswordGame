@@ -2,17 +2,36 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6IMOdnZDwSp":
+      case "6kebB2275VP":
         Script1();
+        break;
+      case "6B9dFVKI8I2":
+        Script2();
+        break;
+      case "5gTda0b0FPt":
+        Script3();
+        break;
+      case "6ig3OLw1RNw":
+        Script4();
+        break;
+      case "6VIKNDA7qpb":
+        Script5();
         break;
   }
 }
 
 function Script1()
 {
+  var input = document.getElementsByClassName("text-input-6riNxYtKayZ")[0].children[1].value
+}
+
+function Script2()
+{
   var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
 var table=[];
 var table1=[];
+let player=GetPlayer()
+point1 = player.GetVar("Point")
 var textPoint= document.querySelector("[data-model-id='6UY3G46wd3M']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
 var point=0;
 
@@ -226,9 +245,13 @@ else if (direction === 6) {
     }
 }
 
-        console.log(matrix)
         // Place all words into the matrix
         SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
+var stringifiedMatrix = JSON.stringify(matrix);
+player.SetVar("TextEntry1",stringifiedMatrix)
+console.log(stringifiedMatrix )
+
+
  function placeMatrixInDivs(matrix, divArray) {
             let index = 0; // This will map the 2D matrix to the 1D div array
             for (let row = 0; row < matrix.length; row++) {
@@ -244,6 +267,9 @@ else if (direction === 6) {
         for(const key of tableMap.keys()){
               key.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent= tableMap.get(key).children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent
 }
+
+
+
 //----------------
 
 let keyArray=[];
@@ -282,16 +308,16 @@ function getRandomColor() {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ user_Email: "test", point: 30,sophut:10,sogiay:10 })
+            body: JSON.stringify({ user_Email: "end", point: 30,sophut:10,sogiay:10 })
           })
         
      
      }
-    document.addEventListener('touchmove', function(event) {
+    document.addEventListener('mousemove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
   
-document.ontouchstart= function() {
+document.onmousedown = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
         
@@ -306,10 +332,10 @@ document.ontouchstart= function() {
             console.log(keyText)
             }
         });
-        document.ontouchstart=null
+        document.onmousedown=null
             }
     // When the mouse button is released anywhere on the document
-    document.ontouchend = function() {
+    document.onmouseup = function() {
         isMouseDown = false;
         increment=0;
    var flag=0;
@@ -345,6 +371,7 @@ if(key.style.fill =="rgb(195, 0, 16)" ||  key.style.fill ==""){
       keyArray1=[]
    if(flag==1){
 point ++;
+player.SetVar("Point",point.toString())
 console.log(point)
 textPoint.textContent=point
 }
@@ -365,7 +392,7 @@ textPoint.textContent=point
         rect.hasEntered = false; // Custom flag for each rectangle
         // Add mouseenter event listener to each rectangle
         rect.transform="scale(0.5, 0.5)"
-        rect.addEventListener('pointerenter', function() {
+        rect.addEventListener('mouseenter', function() {
             if(!rect.hasEntered && isMouseDown ){
               
                 rect.hasEntered = true; // Mark as entered
@@ -385,5 +412,179 @@ if(rect.style.fill =="rgb(217, 150, 148)" ||  rect.style.fill ==""){
     });
 });
 
+}
+
+function Script3()
+{
+  let player=GetPlayer()
+email = player.GetVar("TextEntry").concat("@pnj.com.vn")
+point = player.GetVar("Point")
+minutes = player.GetVar("minutes")
+seconds = player.GetVar("seconds")
+
+        fetch('https://prod-45.southeastasia.logic.azure.com:443/workflows/aa96747f205c4500b89b561b53f3c908/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KbXcNYMalGYE8Df7OnafeNnvhxCw01k8pWpFQK-9D3Q', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_Email: email, point: parseInt(point),sophut:parseInt(minutes) ,sogiay:parseInt(seconds) })
+          })
+}
+
+function Script4()
+{
+  let player=GetPlayer()
+var matrix1 = player.GetVar("TextEntry1");
+console.log("ma tran")
+console.log(matrix1)
+var parsedMatrix = JSON.parse(matrix1);
+
+console.log('Parsed matrix:', parsedMatrix);
+
+var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
+var table=[];
+var table1=[];
+point1 = player.GetVar("Point")
+
+
+for(var i =0;i<100;i++){
+    table.push(slideLayer[i])
+}
+console.log(table)
+for(var i =100;i<200;i++){
+    table1.push(slideLayer[i])
+}
+
+    const tableMap= new Map()
+function isOverlapping(div1, div2) {
+            const rect1 = div1.getBoundingClientRect();
+            const rect2 = div2.getBoundingClientRect();
+
+            return !(rect1.right < rect2.left || 
+                     rect1.left > rect2.right || 
+                     rect1.bottom < rect2.top || 
+                     rect1.top > rect2.bottom);
+        }
+    for(var i =0;i<table.length;i++){
+        for(var z =0;z<table1.length;z++){
+            if(isOverlapping(table1[z],table[i])){
+                tableMap.set(table1[z],table[i])
+                console.log(i + "true")
+                break
+            }
+    }
+    }
+function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+ var SelectedKeytext = ['SIXSIGMA', 'KAIZEN', 'TRAMSANG','XUATSAC','TRUCOT','TRUCQUAN','WORKSHOP','CONGCU','LEAN','LANGPHI'];
+
+ function placeMatrixInDivs(matrix, divArray) {
+            let index = 0; // This will map the 2D matrix to the 1D div array
+            for (let row = 0; row < matrix.length; row++) {
+                for (let col = 0; col < matrix[row].length; col++) {
+                    // Assign the text content of the matrix to the div
+                     console.log(matrix[row][col])
+                  divArray[index].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent =  matrix[row][col];
+                    index++;
+                }
+            }
+        }
+        placeMatrixInDivs(parsedMatrix, table);
+       for(const key of tableMap.keys()){
+              key.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent= tableMap.get(key).children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent
+}
+function findKeywordInMatrix(matrix, keyword) {
+    const numRows = matrix.length;
+    const numCols = matrix[0].length;
+    const keywordLength = keyword.length;
+
+    // Directions for (row, col) movements: right, down, bottom-right, top-right, left, up, bottom-left, top-left
+    const directions = [
+        { x: 0, y: 1 },   // right
+        { x: 1, y: 0 },   // down
+        { x: 1, y: 1 },   // bottom-right
+        { x: -1, y: 1 },  // top-right
+        { x: 0, y: -1 },  // left
+        { x: -1, y: 0 },  // up
+        { x: 1, y: -1 },  // bottom-left
+        { x: -1, y: -1 }  // top-left
+    ];
+
+    function isInBounds(row, col) {
+        return row >= 0 && row < numRows && col >= 0 && col < numCols;
+    }
+
+    function searchFrom(row, col) {
+        // Check all directions
+        for (let d = 0; d < directions.length; d++) {
+            let found = true;
+            const direction = directions[d];
+            let positions = [];
+
+            for (let i = 0; i < keywordLength; i++) {
+                const newRow = row + i * direction.x;
+                const newCol = col + i * direction.y;
+
+                if (!isInBounds(newRow, newCol) || matrix[newRow][newCol] !== keyword[i]) {
+                    found = false;
+                    break;
+                }
+                positions.push({ row: newRow, col: newCol });
+            }
+
+            if (found) {
+                highlightKeyword(positions);
+                return true;  // Stop once the keyword is found
+            }
+        }
+        return false;
+    }
+
+    // Iterate through the entire matrix
+    for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+            if (matrix[row][col] === keyword[0]) {
+                if (searchFrom(row, col)) {
+                    return;  // Stop once the keyword is found
+                }
+            }
+        }
+    }
+}
+
+// Highlight the found keyword by adding a CSS class
+function highlightKeyword(positions) {
+    var Color1=getRandomColor()
+    positions.forEach(pos => {
+         let index = 0; // This will map the 2D matrix to the 1D div array
+            for (let row = 0; row < parsedMatrix.length; row++) {
+                for (let col = 0; col < parsedMatrix[row].length; col++) {
+                    // Assign the text content of the matrix to the div
+                     console.log(parsedMatrix[row][col])
+                    if(row==pos.row && col==pos.col){
+                  table[index].children[0].children[0].children[0].children[0].children[0].style.fill=Color1
+                   
+                    }
+                    index++;
+                }
+            }
+    })
+}
+SelectedKeytext.forEach(x=>findKeywordInMatrix(parsedMatrix,x))
+console.log(parsedMatrix)
+}
+
+function Script5()
+{
+  let player=GetPlayer()
+var point = player.GetVar("Point");
+player.SetVar("NumericEntry1",point)
+player.SetVar("NumericEntry3",point)
 }
 
