@@ -2,19 +2,19 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6SFFpNquKgc":
+      case "6ayyWeYNnRv":
         Script1();
         break;
-      case "69jeRGaCvCh":
+      case "5wnCDe2wJWM":
         Script2();
         break;
-      case "6Fm3jmFOzf9":
+      case "5ovi45kSOwd":
         Script3();
         break;
-      case "5XBkyYCknWW":
+      case "684voqMUukS":
         Script4();
         break;
-      case "5boGnjY1OpI":
+      case "6kpsYZrcorP":
         Script5();
         break;
   }
@@ -32,7 +32,7 @@ var table=[];
 var table1=[];
 let player=GetPlayer()
 point1 = player.GetVar("Point")
-var textPoint= document.querySelector("[data-model-id='6UY3G46wd3M']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
+//var textPoint= document.querySelector("[data-model-id='6UY3G46wd3M']").children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0]
 var point=0;
 
 for(var i =6;i<106;i++){
@@ -70,188 +70,200 @@ function isOverlapping(div1, div2) {
     
         var numRows = 10;
         var numCols = 10;
-        var matrix = Array.from({ length: numRows }, () => Array(numCols).fill(''));
+        // var matrix = Array.from({ length: numRows }, () => Array(numCols).fill(''));
 
        
-    function placeWordInMatrix(word, matrix) {
-    var placed = false;
+   // function placeWordInMatrix(word, matrix) {
+        //     var placed = false;
+        
+        //     while (!placed) {
+        //         // Choose a random direction (0: horizontal, 1: vertical, 2: diagonal top-left to bottom-right,
+        //         // 3: diagonal bottom-right to top-left, 4: right to left, 5: bottom to top)
+        //         var direction = Math.floor(Math.random() * 8);
+        
+        
+        //         if (direction === 0) {
+        //             // Place horizontally (left to right)
+        //             var row = Math.floor(Math.random() * numRows);
+        //             var col = Math.floor(Math.random() * (numCols - word.length));
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row][col + i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row][col + i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 1) {
+        //             // Place vertically (top to bottom)
+        //             var row = Math.floor(Math.random() * (numRows - word.length));
+        //             var col = Math.floor(Math.random() * numCols);
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row + i][col] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row + i][col] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 2) {
+        //             // Place diagonally (top-left to bottom-right)
+        //             var row = Math.floor(Math.random() * (numRows - word.length));
+        //             var col = Math.floor(Math.random() * (numCols - word.length));
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row + i][col + i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row + i][col + i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 3) {
+        //             // Place diagonally (bottom-right to top-left)
+        //             var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+        //             var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row - i][col - i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row - i][col - i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 4) {
+        //             // Place horizontally (right to left)
+        //             var row = Math.floor(Math.random() * numRows);
+        //             var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row][col - i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row][col - i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 5) {
+        //             // Place vertically (bottom to top)
+        //             var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+        //             var col = Math.floor(Math.random() * numCols);
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row - i][col] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row - i][col] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        //         }
+        // else if (direction === 6) {
+        //             // Place diagonally (bottom-left to top-right)
+        //             var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
+        //             var col = Math.floor(Math.random() * (numCols - word.length));
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row - i][col + i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row - i][col + i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        
+        //         } else if (direction === 7) {
+        //             // Place diagonally (top-right to bottom-left)
+        //             var row = Math.floor(Math.random() * (numRows - word.length));
+        //             var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
+        
+        //             var canPlace = true;
+        //             for (let i = 0; i < word.length; i++) {
+        //                 if (matrix[row + i][col - i] !== '') {
+        //                     canPlace = false;
+        //                     break;
+        //                 }
+        //             }
+        
+        //             if (canPlace) {
+        //                 for (let i = 0; i < word.length; i++) {
+        //                     matrix[row + i][col - i] = word[i];
+        //                 }
+        //                 placed = true;
+        //             }
+        //         }
+        //     }
+        // }
+        
+        //         // Place all words into the matrix
+        //         SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
 
-    while (!placed) {
-        // Choose a random direction (0: horizontal, 1: vertical, 2: diagonal top-left to bottom-right,
-        // 3: diagonal bottom-right to top-left, 4: right to left, 5: bottom to top)
-        var direction = Math.floor(Math.random() * 8);
-
-
-        if (direction === 0) {
-            // Place horizontally (left to right)
-            var row = Math.floor(Math.random() * numRows);
-            var col = Math.floor(Math.random() * (numCols - word.length));
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row][col + i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row][col + i] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 1) {
-            // Place vertically (top to bottom)
-            var row = Math.floor(Math.random() * (numRows - word.length));
-            var col = Math.floor(Math.random() * numCols);
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row + i][col] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row + i][col] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 2) {
-            // Place diagonally (top-left to bottom-right)
-            var row = Math.floor(Math.random() * (numRows - word.length));
-            var col = Math.floor(Math.random() * (numCols - word.length));
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row + i][col + i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row + i][col + i] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 3) {
-            // Place diagonally (bottom-right to top-left)
-            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
-            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row - i][col - i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row - i][col - i] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 4) {
-            // Place horizontally (right to left)
-            var row = Math.floor(Math.random() * numRows);
-            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row][col - i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row][col - i] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 5) {
-            // Place vertically (bottom to top)
-            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
-            var col = Math.floor(Math.random() * numCols);
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row - i][col] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row - i][col] = word[i];
-                }
-                placed = true;
-            }
-        }
-else if (direction === 6) {
-            // Place diagonally (bottom-left to top-right)
-            var row = Math.floor(Math.random() * (numRows - word.length)) + word.length - 1;
-            var col = Math.floor(Math.random() * (numCols - word.length));
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row - i][col + i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row - i][col + i] = word[i];
-                }
-                placed = true;
-            }
-
-        } else if (direction === 7) {
-            // Place diagonally (top-right to bottom-left)
-            var row = Math.floor(Math.random() * (numRows - word.length));
-            var col = Math.floor(Math.random() * (numCols - word.length)) + word.length - 1;
-
-            var canPlace = true;
-            for (let i = 0; i < word.length; i++) {
-                if (matrix[row + i][col - i] !== '') {
-                    canPlace = false;
-                    break;
-                }
-            }
-
-            if (canPlace) {
-                for (let i = 0; i < word.length; i++) {
-                    matrix[row + i][col - i] = word[i];
-                }
-                placed = true;
-            }
-        }
-    }
-}
-
-        // Place all words into the matrix
-        SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
+const matrix = [
+['A', '', '', 'T', '', '', 'T', '', 'T', ''],
+    ['S', '', 'M', '', 'R', '', 'R', '', 'R', ''],
+    ['I', 'K', 'L', '', 'G', '', 'U', '', 'U', 'P'],
+   ['X', 'U', 'A', 'T', 'S', 'A', 'C', '', 'C', 'O'],
+    ['S', 'E', 'N', 'I', 'T', 'E', 'O', 'S', 'Q', 'H'],
+    ['I', 'H', 'G', 'A', 'Z', 'L', 'T', 'N', 'U', 'S'],
+    ['G', '', 'P', '', 'N', 'E', 'O', '', 'A', 'K'],
+    ['M', 'A', 'H', '', 'C', 'A', 'N', '', 'N', 'R'],
+   ['A', '', 'I', 'C', 'O', 'N', 'G', 'C', 'U', 'O'],
+    ['T', 'R', 'A', 'M', 'S', 'A', 'N', 'G', '', 'W']
+  ];
 var stringifiedMatrix = JSON.stringify(matrix);
 player.SetVar("TextEntry1",stringifiedMatrix)
 console.log(stringifiedMatrix )
-
-
+console.log(matrix)
  function placeMatrixInDivs(matrix, divArray) {
             let index = 0; // This will map the 2D matrix to the 1D div array
             for (let row = 0; row < matrix.length; row++) {
@@ -370,10 +382,11 @@ if(key.style.fill =="rgb(195, 0, 16)" ||  key.style.fill ==""){
         keyArray=[]
       keyArray1=[]
    if(flag==1){
-point ++;
-player.SetVar("Point",point.toString())
+point +=10;
+player.SetVar("Point",point)
+player.SetVar("NumericEntry5",point)
 console.log(point)
-textPoint.textContent=point
+//textPoint.textContent=point
 }
 
 };
@@ -585,6 +598,6 @@ function Script5()
   let player=GetPlayer()
 var point = player.GetVar("Point");
 player.SetVar("NumericEntry1",point)
-player.SetVar("NumericEntry3",point)
+player.SetVar("NumericEntry3",point/10)
 }
 
