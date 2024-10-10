@@ -2,19 +2,19 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6miiIgjAafP":
+      case "6eJpTKjW5Kc":
         Script1();
         break;
-      case "6b5uVGKnynU":
+      case "5iqc6wLZGNE":
         Script2();
         break;
-      case "6nB3aFpB62l":
+      case "6eLw9DChPSn":
         Script3();
         break;
-      case "5rJbSqaOYaZ":
+      case "5puJGod4c35":
         Script4();
         break;
-      case "64hCtMlmXMd":
+      case "6IM2PRJUx5N":
         Script5();
         break;
   }
@@ -27,45 +27,62 @@ function Script1()
 
 function Script2()
 {
-       function triggerMouseEvent(eventType, touchEvent) {
-            const touch = touchEvent.changedTouches[0];
-            
-            const mouseEvent = new MouseEvent(eventType, {
-              bubbles: true,
-              cancelable: true,
-              view: window,
-              clientX: touch.clientX,
-              clientY: touch.clientY,
-            });
-          
-            touchEvent.target.dispatchEvent(mouseEvent);
-          }
-          
-          // Mapping touch events to mouse events
-          document.addEventListener("touchstart", function (e) {
-            triggerMouseEvent("mousedown", e);
-          }, { passive: false });
-          
-          document.addEventListener("touchmove", function (e) {
-            triggerMouseEvent("mousemove", e);
-          }, { passive: false });
-          
-          document.addEventListener("touchend", function (e) {
-            triggerMouseEvent("mouseup", e);
-          }, { passive: false });
-          
-          // Prevent default behavior for touch events to avoid conflict with scrolling
-          document.addEventListener("touchstart", function (e) {
-            e.preventDefault();
-          }, { passive: false });
-          
-          document.addEventListener("touchmove", function (e) {
-            e.preventDefault();
-          }, { passive: false });
-          
-          document.addEventListener("touchend", function (e) {
-            e.preventDefault();
-          }, { passive: false });
+  let lastTouchedElement = null;
+
+// Helper function to trigger mouse enter
+function triggerMouseEnter(element, touchEvent) {
+  const mouseEvent = new MouseEvent('mouseenter', {
+    bubbles: true,
+    cancelable: true,
+    clientX: touchEvent.changedTouches[0].clientX,
+    clientY: touchEvent.changedTouches[0].clientY
+  });
+
+  element.dispatchEvent(mouseEvent);
+}
+
+// Function to handle touchmove and simulate mouseenter
+function handleTouchMove(e) {
+  const touch = e.changedTouches[0];
+  const elementUnderTouch = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  if (elementUnderTouch !== lastTouchedElement) {
+    if (lastTouchedElement) {
+      // Trigger mouseleave if needed
+      const mouseLeaveEvent = new MouseEvent('mouseleave', {
+        bubbles: true,
+        cancelable: true,
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      lastTouchedElement.dispatchEvent(mouseLeaveEvent);
+    }
+    
+    // Trigger custom mouseenter
+    if (elementUnderTouch) {
+      triggerMouseEnter(elementUnderTouch, e);
+    }
+
+    // Update last touched element
+    lastTouchedElement = elementUnderTouch;
+  }
+}
+
+// Add event listeners
+document.addEventListener('touchstart', function(e) {
+  const touch = e.changedTouches[0];
+  lastTouchedElement = document.elementFromPoint(touch.clientX, touch.clientY);
+  triggerMouseEnter(lastTouchedElement, e);
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+  handleTouchMove(e);
+}, { passive: false });
+
+document.addEventListener('touchend', function(e) {
+  lastTouchedElement = null;
+}, { passive: false });
+
 
 
 
