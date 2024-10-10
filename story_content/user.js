@@ -2,19 +2,19 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6ayyWeYNnRv":
+      case "6miiIgjAafP":
         Script1();
         break;
-      case "5wnCDe2wJWM":
+      case "6b5uVGKnynU":
         Script2();
         break;
-      case "5ovi45kSOwd":
+      case "6nB3aFpB62l":
         Script3();
         break;
-      case "684voqMUukS":
+      case "5rJbSqaOYaZ":
         Script4();
         break;
-      case "6kpsYZrcorP":
+      case "64hCtMlmXMd":
         Script5();
         break;
   }
@@ -27,7 +27,50 @@ function Script1()
 
 function Script2()
 {
-  var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
+       function triggerMouseEvent(eventType, touchEvent) {
+            const touch = touchEvent.changedTouches[0];
+            
+            const mouseEvent = new MouseEvent(eventType, {
+              bubbles: true,
+              cancelable: true,
+              view: window,
+              clientX: touch.clientX,
+              clientY: touch.clientY,
+            });
+          
+            touchEvent.target.dispatchEvent(mouseEvent);
+          }
+          
+          // Mapping touch events to mouse events
+          document.addEventListener("touchstart", function (e) {
+            triggerMouseEvent("mousedown", e);
+          }, { passive: false });
+          
+          document.addEventListener("touchmove", function (e) {
+            triggerMouseEvent("mousemove", e);
+          }, { passive: false });
+          
+          document.addEventListener("touchend", function (e) {
+            triggerMouseEvent("mouseup", e);
+          }, { passive: false });
+          
+          // Prevent default behavior for touch events to avoid conflict with scrolling
+          document.addEventListener("touchstart", function (e) {
+            e.preventDefault();
+          }, { passive: false });
+          
+          document.addEventListener("touchmove", function (e) {
+            e.preventDefault();
+          }, { passive: false });
+          
+          document.addEventListener("touchend", function (e) {
+            e.preventDefault();
+          }, { passive: false });
+
+
+
+//-------------------------
+var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
 var table=[];
 var table1=[];
 let player=GetPlayer()
