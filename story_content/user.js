@@ -2,25 +2,25 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "64QMk71ujSX":
+      case "6qSlVZv8a0n":
         Script1();
         break;
-      case "5lLjMPjPb0e":
+      case "5Vx04Fd3MpK":
         Script2();
         break;
-      case "5WuvZXgkWuc":
+      case "6KLiPxeHrEC":
         Script3();
         break;
-      case "5qcYQBqRDzF":
+      case "6mqLVxl8lLZ":
         Script4();
         break;
-      case "62nYuhDC2X9":
+      case "64ZgyhokFUn":
         Script5();
         break;
-      case "5dASvANreHR":
+      case "5oRvTmmAHxz":
         Script6();
         break;
-      case "5ywJ9n0QsRJ":
+      case "6P9PSg7fdzn":
         Script7();
         break;
   }
@@ -408,12 +408,15 @@ document.onmousedown = function() {
         var Rectangles = rectangles;
         
         Rectangles.forEach(Rectangle => {
-            if(isCursorInRectangle(Rectangle,cursorX,cursorY) && Rectangle.getAttribute("fill") == "#D99694" ) {
+            if(isCursorInRectangle(Rectangle,cursorX,cursorY) ) {
+            if(Rectangle.getAttribute("fill") == "#D99694"){
             Rectangle.style.fill = "#c30010";
+  tableMap.get(Rectangle.parentNode.parentNode.parentNode.parentNode.parentNode).children[0].children[0].children[0].children[0].children[0].style.fill="#c30010";
+}
      keyArray1.push(tableMap.get(Rectangle.parentNode.parentNode.parentNode.parentNode.parentNode).children[0].children[0].children[0].children[0].children[0])
             keyArray.push(Rectangle)
             keyText=keyText+Rectangle.parentNode.parentNode.children[1].children[0].children[0].children[0].children[0].textContent
-  tableMap.get(Rectangle.parentNode.parentNode.parentNode.parentNode.parentNode).children[0].children[0].children[0].children[0].children[0].style.fill="#c30010";
+
 
             console.log(keyText)
             }
@@ -533,7 +536,6 @@ var table=[];
 var table1=[];
 point1 = player.GetVar("Point")
 
-
 for(var i =0;i<100;i++){
     table.push(slideLayer[i])
 }
@@ -552,10 +554,10 @@ function isOverlapping(div1, div2) {
                      rect1.bottom < rect2.top || 
                      rect1.top > rect2.bottom);
         }
-    for(var i =0;i<table.length;i++){
-        for(var z =0;z<table1.length;z++){
-            if(isOverlapping(table1[z],table[i])){
-                tableMap.set(table1[z],table[i])
+    for(var i =0;i<table1.length;i++){
+        for(var z =0;z<table.length;z++){
+            if(isOverlapping(table[z],table1[i])){
+                tableMap.set(table[z],table1[i])
                 console.log(i + "true")
                 break
             }
@@ -584,7 +586,7 @@ function getRandomColor() {
         }
         placeMatrixInDivs(parsedMatrix, table);
        for(const key of tableMap.keys()){
-              key.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent= tableMap.get(key).children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent
+tableMap.get(key).children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent=key.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent
 }
 function findKeywordInMatrix(matrix, keyword) {
     const numRows = matrix.length;
@@ -652,11 +654,13 @@ function highlightKeyword(positions) {
          let index = 0; // This will map the 2D matrix to the 1D div array
             for (let row = 0; row < parsedMatrix.length; row++) {
                 for (let col = 0; col < parsedMatrix[row].length; col++) {
-                    // Assign the text content of the matrix to the div
                      console.log(parsedMatrix[row][col])
                     if(row==pos.row && col==pos.col){
                   table[index].children[0].children[0].children[0].children[0].children[0].style.fill=Color1
-                   
+tableMap.get(table[index]).children[0].children[0].children[0].children[0].children[0].style.fill=Color1;
+                    
+
+
                     }
                     index++;
                 }
@@ -664,7 +668,7 @@ function highlightKeyword(positions) {
     })
 }
 SelectedKeytext.forEach(x=>findKeywordInMatrix(parsedMatrix,x))
-console.log(parsedMatrix)
+console.log(tableMap)
 }
 
 function Script6()
