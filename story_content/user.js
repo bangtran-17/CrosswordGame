@@ -2,30 +2,44 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6eJpTKjW5Kc":
+      case "64QMk71ujSX":
         Script1();
         break;
-      case "5iqc6wLZGNE":
+      case "5lLjMPjPb0e":
         Script2();
         break;
-      case "6eLw9DChPSn":
+      case "5WuvZXgkWuc":
         Script3();
         break;
-      case "5puJGod4c35":
+      case "5qcYQBqRDzF":
         Script4();
         break;
-      case "6IM2PRJUx5N":
+      case "62nYuhDC2X9":
         Script5();
+        break;
+      case "5dASvANreHR":
+        Script6();
+        break;
+      case "5ywJ9n0QsRJ":
+        Script7();
         break;
   }
 }
 
 function Script1()
 {
-  var input = document.getElementsByClassName("text-input-6riNxYtKayZ")[0].children[1].value
+    document.ontouchstart=function(){
+       alert('Game này chưa hỗ trợ trên mobile, vui lòng truy cập bằng máy tính nhé')
+     
+     }
 }
 
 function Script2()
+{
+  var input = document.getElementsByClassName("text-input-6riNxYtKayZ")[0].children[1].value
+}
+
+function Script3()
 {
   let lastTouchedElement = null;
 
@@ -309,14 +323,14 @@ function isOverlapping(div1, div2) {
         //         SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
 
 const matrix = [
-['A', '', '', 'T', '', '', 'T', '', 'T', ''],
-    ['S', '', 'M', '', 'R', '', 'R', '', 'R', ''],
-    ['I', 'K', 'L', '', 'G', '', 'U', '', 'U', 'P'],
+['', '', '', '', '', '', 'T', '', 'T', ''],
+    ['S', '', '', '', '', '', 'R', '', 'R', ''],
+    ['I', 'K', 'L', '', '', '', 'U', '', 'U', 'P'],
    ['X', 'U', 'A', 'T', 'S', 'A', 'C', '', 'C', 'O'],
-    ['S', 'E', 'N', 'I', 'T', 'E', 'O', 'S', 'Q', 'H'],
-    ['I', 'H', 'G', 'A', 'Z', 'L', 'T', 'N', 'U', 'S'],
-    ['G', '', 'P', '', 'N', 'E', 'O', '', 'A', 'K'],
-    ['M', 'A', 'H', '', 'C', 'A', 'N', '', 'N', 'R'],
+    ['S', '', 'N', 'I', '', '', 'O', '', 'Q', 'H'],
+    ['I', '', 'G', '', 'Z', 'L', 'T', '', 'U', 'S'],
+    ['G', '', 'P', '', '', 'E', '', '', 'A', 'K'],
+    ['M', '', 'H', '', '', 'A', 'N', '', 'N', 'R'],
    ['A', '', 'I', 'C', 'O', 'N', 'G', 'C', 'U', 'O'],
     ['T', 'R', 'A', 'M', 'S', 'A', 'N', 'G', '', 'W']
   ];
@@ -487,7 +501,7 @@ if(rect.style.fill =="rgb(217, 150, 148)" ||  rect.style.fill ==""){
 
 }
 
-function Script3()
+function Script4()
 {
   let player=GetPlayer()
 email = player.GetVar("TextEntry").concat("@pnj.com.vn")
@@ -504,7 +518,7 @@ seconds = player.GetVar("seconds")
           })
 }
 
-function Script4()
+function Script5()
 {
   let player=GetPlayer()
 var matrix1 = player.GetVar("TextEntry1");
@@ -653,11 +667,21 @@ SelectedKeytext.forEach(x=>findKeywordInMatrix(parsedMatrix,x))
 console.log(parsedMatrix)
 }
 
-function Script5()
+function Script6()
 {
   let player=GetPlayer()
 var point = player.GetVar("Point");
 player.SetVar("NumericEntry1",point)
 player.SetVar("NumericEntry3",point/10)
+}
+
+function Script7()
+{
+  let player=GetPlayer()
+ player.SetVar("Point",'0')
+ player.SetVar("minutes",0)
+ player.SetVar("seconds",0)
+player.SetVar("NumericEntry5",0)
+
 }
 
