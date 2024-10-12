@@ -2,25 +2,25 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6EnHLPTyCbo":
+      case "6bRVxdEVSvD":
         Script1();
         break;
-      case "6Ksx7tQYhIy":
+      case "5fzaszdi0TS":
         Script2();
         break;
-      case "6RfN6a9ZY9P":
+      case "6MOvjioUBT3":
         Script3();
         break;
-      case "6MTBlIhHuPm":
+      case "67nD6hDwrXd":
         Script4();
         break;
-      case "6BO8nTgC7q7":
+      case "6aDbuZSx8jx":
         Script5();
         break;
-      case "5VzzjLvJW1X":
+      case "5cKdBIaqxnv":
         Script6();
         break;
-      case "6ZVhPPnpctb":
+      case "6M9xt5cJwae":
         Script7();
         break;
   }
@@ -399,11 +399,11 @@ function getRandomColor() {
         
      
      }
-    document.addEventListener('mousemove', function(event) {
+    document.addEventListener('pointermove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
   
-document.onmousedown = function() {
+document.onpointerdown = function() {
         isMouseDown = true;
         var Rectangles = rectangles;
         
@@ -424,7 +424,7 @@ document.onmousedown = function() {
         document.onmousedown=null
             }
     // When the mouse button is released anywhere on the document
-    document.onmouseup = function() {
+    document.onpointerup = function() {
         isMouseDown = false;
         increment=0;
    var flag=0;
