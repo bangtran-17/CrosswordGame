@@ -2,25 +2,25 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5qICLI2wKkk":
+      case "63GwGxhyqf9":
         Script1();
         break;
-      case "6UukdHq1tIw":
+      case "5eiCvzUcn2Q":
         Script2();
         break;
-      case "5npbvKaM89b":
+      case "5st4llL5pyU":
         Script3();
         break;
-      case "6DeRS3relM5":
+      case "5eui8BKxRcH":
         Script4();
         break;
-      case "60uZB89cQEH":
+      case "5cyNOBfefiu":
         Script5();
         break;
-      case "5eSSWN5S1V2":
+      case "5vQeGPfOA8y":
         Script6();
         break;
-      case "6W7Zq7BLzl4":
+      case "6a0M6VBF6zh":
         Script7();
         break;
   }
@@ -388,17 +388,7 @@ function getRandomColor() {
         }
         return color;
     }
-    document.ontouchstart=function(){
-        fetch('https://prod-45.southeastasia.logic.azure.com:443/workflows/aa96747f205c4500b89b561b53f3c908/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KbXcNYMalGYE8Df7OnafeNnvhxCw01k8pWpFQK-9D3Q', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ user_Email: "end", point: 30,sophut:10,sogiay:10 })
-          })
-        
-     
-     }
+
     document.addEventListener('pointermove', function(event) {
     var cursorX = event.clientX; // X position relative to the viewport
     var cursorY = event.clientY; // Y position relative to the viewport
@@ -421,7 +411,7 @@ document.onpointerdown = function() {
             console.log(keyText)
             }
         });
-        document.onmousedown=null
+        document.onpointerdown=null
             }
     // When the mouse button is released anywhere on the document
     document.onpointerup = function() {
@@ -522,6 +512,34 @@ seconds = player.GetVar("seconds")
 }
 
 function Script5()
+{
+  let player=GetPlayer()
+var point = player.GetVar("Point");
+var minutes=player.GetVar("minutes")
+var seconds=player.GetVar("seconds")
+var stringMinutes=''
+var stringSeconds=''
+if(minutes <10){
+ stringMinutes= '0' + minutes.toString()
+}
+else{
+stringMinutes=minutes.toString()
+}
+if(seconds <10){
+ stringSeconds= '0' + seconds.toString()
+}
+else{
+stringSeconds=seconds.toString()
+}
+
+player.SetVar("NumericEntry1",point)
+player.SetVar("NumericEntry3",point/10)
+player.SetVar("TextEntry2",stringMinutes)
+player.SetVar("TextEntry3",stringSeconds)
+
+}
+
+function Script6()
 {
   let player=GetPlayer()
 var matrix1 = player.GetVar("TextEntry1");
@@ -669,14 +687,6 @@ tableMap.get(table[index]).children[0].children[0].children[0].children[0].child
 }
 SelectedKeytext.forEach(x=>findKeywordInMatrix(parsedMatrix,x))
 console.log(tableMap)
-}
-
-function Script6()
-{
-  let player=GetPlayer()
-var point = player.GetVar("Point");
-player.SetVar("NumericEntry1",point)
-player.SetVar("NumericEntry3",point/10)
 }
 
 function Script7()
