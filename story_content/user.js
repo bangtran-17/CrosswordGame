@@ -2,25 +2,25 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5jgxO1zQIih":
+      case "5vfUc8NNQr5":
         Script1();
         break;
-      case "5g9dCV6NMz4":
+      case "6CDIp56uJZ0":
         Script2();
         break;
-      case "6125y50Ik8C":
+      case "6OrBFc0rJ0y":
         Script3();
         break;
-      case "6jK2hPS9uEu":
+      case "6ov49fvRYI8":
         Script4();
         break;
-      case "6p9BgCUBIJG":
+      case "60UEO1nkNaW":
         Script5();
         break;
-      case "5ssseTkfVnj":
+      case "6SUszcDSZtg":
         Script6();
         break;
-      case "5dpBkFURrda":
+      case "6H3QVri0S6u":
         Script7();
         break;
   }
@@ -542,12 +542,18 @@ player.SetVar("TextEntry3",stringSeconds)
 function Script6()
 {
   let player=GetPlayer()
-var matrix1 = player.GetVar("TextEntry1");
-console.log("ma tran")
-console.log(matrix1)
-var parsedMatrix = JSON.parse(matrix1);
+ player.SetVar("Point",'0')
+ player.SetVar("minutes",0)
+ player.SetVar("seconds",0)
+player.SetVar("NumericEntry5",0)
 
-console.log('Parsed matrix:', parsedMatrix);
+}
+
+function Script7()
+{
+  let player=GetPlayer()
+var matrix1 = player.GetVar("TextEntry1");
+var parsedMatrix = JSON.parse(matrix1);
 
 var slideLayer = document.querySelector('.slide-layer.base-layer.shown').children;
 var table=[];
@@ -592,11 +598,9 @@ function getRandomColor() {
  var SelectedKeytext = ['SIXSIGMA', 'KAIZEN', 'TRAMSANG','XUATSAC','TRUCOT','TRUCQUAN','WORKSHOP','CONGCU','LEAN','LANGPHI'];
 
  function placeMatrixInDivs(matrix, divArray) {
-            let index = 0; // This will map the 2D matrix to the 1D div array
+            let index = 0;
             for (let row = 0; row < matrix.length; row++) {
                 for (let col = 0; col < matrix[row].length; col++) {
-                    // Assign the text content of the matrix to the div
-                     console.log(matrix[row][col])
                   divArray[index].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].textContent =  matrix[row][col];
                     index++;
                 }
@@ -610,8 +614,6 @@ function findKeywordInMatrix(matrix, keyword) {
     const numRows = matrix.length;
     const numCols = matrix[0].length;
     const keywordLength = keyword.length;
-
-    // Directions for (row, col) movements: right, down, bottom-right, top-right, left, up, bottom-left, top-left
     const directions = [
         { x: 0, y: 1 },   // right
         { x: 1, y: 0 },   // down
@@ -637,7 +639,6 @@ function findKeywordInMatrix(matrix, keyword) {
             for (let i = 0; i < keywordLength; i++) {
                 const newRow = row + i * direction.x;
                 const newCol = col + i * direction.y;
-
                 if (!isInBounds(newRow, newCol) || matrix[newRow][newCol] !== keyword[i]) {
                     found = false;
                     break;
@@ -652,33 +653,26 @@ function findKeywordInMatrix(matrix, keyword) {
         }
         return false;
     }
-
-    // Iterate through the entire matrix
     for (let row = 0; row < numRows; row++) {
         for (let col = 0; col < numCols; col++) {
             if (matrix[row][col] === keyword[0]) {
                 if (searchFrom(row, col)) {
-                    return;  // Stop once the keyword is found
+                    return; 
                 }
             }
         }
     }
 }
-
-// Highlight the found keyword by adding a CSS class
 function highlightKeyword(positions) {
     var Color1=getRandomColor()
     positions.forEach(pos => {
-         let index = 0; // This will map the 2D matrix to the 1D div array
+         let index = 0; 
             for (let row = 0; row < parsedMatrix.length; row++) {
                 for (let col = 0; col < parsedMatrix[row].length; col++) {
                      console.log(parsedMatrix[row][col])
                     if(row==pos.row && col==pos.col){
                   table[index].children[0].children[0].children[0].children[0].children[0].style.fill=Color1
 tableMap.get(table[index]).children[0].children[0].children[0].children[0].children[0].style.fill=Color1;
-                    
-
-
                     }
                     index++;
                 }
@@ -687,15 +681,5 @@ tableMap.get(table[index]).children[0].children[0].children[0].children[0].child
 }
 SelectedKeytext.forEach(x=>findKeywordInMatrix(parsedMatrix,x))
 console.log(tableMap)
-}
-
-function Script7()
-{
-  let player=GetPlayer()
- player.SetVar("Point",'0')
- player.SetVar("minutes",0)
- player.SetVar("seconds",0)
-player.SetVar("NumericEntry5",0)
-
 }
 
