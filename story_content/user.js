@@ -2,25 +2,25 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5sqPfDw4pbt":
+      case "6mU5KU8OW5u":
         Script1();
         break;
-      case "6lOdLpeGnSc":
+      case "65ccPjxS6aG":
         Script2();
         break;
-      case "6TR7yJVa7Po":
+      case "6iSbw43IsBx":
         Script3();
         break;
-      case "5qqpIZ5XcFb":
+      case "6Q5AZOkOZbb":
         Script4();
         break;
-      case "67P5NybojQ6":
+      case "6PqYDOjv61L":
         Script5();
         break;
-      case "5tZQgKkeKwZ":
+      case "6EwJkwYM1c2":
         Script6();
         break;
-      case "5vdWryFQe7h":
+      case "5tIeoxlGtoB":
         Script7();
         break;
   }
@@ -323,16 +323,16 @@ function isOverlapping(div1, div2) {
         //         SelectedKeytext.forEach(word => placeWordInMatrix(word, matrix));
 
 const matrix = [
-['', '', '', '', '', '', 'T', '', 'T', ''],
-    ['S', '', '', '', '', '', 'R', '', 'R', ''],
-    ['I', 'K', 'L', '', '', '', 'U', '', 'U', 'P'],
-   ['X', 'U', 'A', 'T', 'S', 'A', 'C', '', 'C', 'O'],
-    ['S', '', 'N', 'I', '', '', 'O', '', 'Q', 'H'],
-    ['I', '', 'G', '', 'Z', 'L', 'T', '', 'U', 'S'],
-    ['G', '', 'P', '', '', 'E', '', '', 'A', 'K'],
-    ['M', '', 'H', '', '', 'A', 'N', '', 'N', 'R'],
-   ['A', '', 'I', 'C', 'O', 'N', 'G', 'C', 'U', 'O'],
-    ['T', 'R', 'A', 'M', 'S', 'A', 'N', 'G', '', 'W']
+    ['K', 'A', 'I', 'Z', 'E', 'N', '', '', 'T', ''],
+    ['S', 'X', 'U', 'A', 'T', 'S', 'A', 'C', 'R', ''],
+    ['I', '', 'L', '', '', '', '', 'T', 'U', 'W'],
+    ['X', '', 'A', '', '', '','','R', 'C', 'O'],
+    ['S', '', 'N', '', '', 'L', '', 'U', 'Q', 'R'],
+    ['I', '', 'G', '', '', 'E', '', 'C', 'U', 'K'],
+    ['G', '', 'P', '', '', 'A', '', 'O', 'A', 'S'],
+    ['M', '', 'H', '', '', 'N', '', 'T', 'N', 'H'],
+    ['A', '', 'I', 'C', 'O', 'N', 'G', 'C', 'U', 'O'],
+    ['T', 'R', 'A', 'M', 'S', 'A', 'N', 'G', '', 'P']
   ];
 var stringifiedMatrix = JSON.stringify(matrix);
 player.SetVar("TextEntry1",stringifiedMatrix)
@@ -357,6 +357,7 @@ console.log(matrix)
 
 
 //----------------
+
 
 let keyArray=[];
 let keyArray1=[]
@@ -390,8 +391,8 @@ function getRandomColor() {
     }
 
     document.addEventListener('pointermove', function(event) {
-    var cursorX = event.clientX; // X position relative to the viewport
-    var cursorY = event.clientY; // Y position relative to the viewport
+    var cursorX = event.clientX; 
+    var cursorY = event.clientY; 
   
 document.onpointerdown = function() {
         isMouseDown = true;
@@ -413,12 +414,12 @@ document.onpointerdown = function() {
         });
         document.onpointerdown=null
             }
-    // When the mouse button is released anywhere on the document
+    
     document.onpointerup = function() {
         isMouseDown = false;
-        increment=0;
+        increment=0;    
    var flag=0;
-        if( SelectedKeytext.includes(keyText)){
+        if(SelectedKeytext.includes(keyText)){
             console.log('true');
             randomColor=getRandomColor()
             keyArray.forEach(function(key) {
